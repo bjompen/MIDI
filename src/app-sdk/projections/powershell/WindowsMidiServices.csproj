@@ -46,7 +46,10 @@
         <Compile Include="..\..\..\..\build\staging\version\WindowsMidiServicesVersion.cs" Link="WindowsMidiServicesVersion.cs" />
     </ItemGroup>
 
-
+  
+  <Target Name="HelpBuild" AfterTargets="Build">
+    <Exec Command='pwsh.exe -NonInteractive -ExecutionPolicy Unrestricted -c &quot; &amp; {.\BuildHelp.ps1 -outputDir $(TargetDir)en-US\}&quot;' />
+  </Target>
 
 
 </Project>
